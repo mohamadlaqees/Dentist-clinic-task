@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   patientInfo: {},
-  treatedPatientInfo: {},
+  patientAnimation: "animate__animated animate__zoomIn",
 };
 
 const patientSlice = createSlice({
@@ -12,11 +12,11 @@ const patientSlice = createSlice({
     showPatientInfo: (state, action) => {
       state.patientInfo = action.payload.patientInfo;
     },
-    treatingThePatient: (state, action) => {
-      //   state.backdrop = action.payload.backdrop;
+    setPatientAnimation: (state, action) => {
+      state.patientAnimation = action.payload.patientAnimation;
     },
   },
 });
 
 export default patientSlice.reducer;
-export const { showPatientInfo } = patientSlice.actions;
+export const { showPatientInfo, setPatientAnimation } = patientSlice.actions;
