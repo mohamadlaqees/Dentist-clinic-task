@@ -125,15 +125,15 @@ function App() {
     getPatientData();
   }, []);
 
-  const incomingPatients = patients.filter(
-    (patient) => patient.status === "incoming"
-  );
-  const waitingPatients = patients.filter(
-    (patient) => patient.status === "waiting"
-  );
-  const currentPatients = patients.filter(
-    (patient) => patient.status === "current"
-  );
+  const incomingPatients = patients
+    .filter((patient) => patient.status === "incoming")
+    .sort((a, b) => new Date(b.booking_date) - new Date(a.booking_date));
+  const waitingPatients = patients
+    .filter((patient) => patient.status === "waiting")
+    .sort((a, b) => new Date(b.booking_date) - new Date(a.booking_date));
+  const currentPatients = patients
+    .filter((patient) => patient.status === "current")
+    .sort((a, b) => new Date(b.booking_date) - new Date(a.booking_date));
 
   return (
     <>
